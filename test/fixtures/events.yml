@@ -1,0 +1,34 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id             :integer          not null, primary key
+#  name           :string
+#  start_at       :datetime
+#  published_at   :datetime
+#  path           :string
+#  depth          :integer
+#  position       :integer
+#  parent_id      :integer
+#  children_count :integer
+#  location_id    :integer          not null
+#  discipline_id  :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start_at: 2016-04-15 19:52:37
+  position: 1
+  parent_id: 1
+  published_at: 2016-04-15 19:52:37
+
+two:
+  name: MyString
+  start_at: 2016-04-15 19:52:37
+  position: 1
+  parent_id: 1
+  published_at: 2016-04-15 19:52:37

@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: athletes
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  info       :text
+#  team_id    :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  info: MyText
+
+two:
+  name: MyString
+  info: MyText

@@ -20,6 +20,8 @@ gem 'mini_magick'
 # Pagination
 gem 'kaminari'
 
+gem 'has_hierarchy'
+
 gem "sorcery"
 gem "pundit" #authorization
 
