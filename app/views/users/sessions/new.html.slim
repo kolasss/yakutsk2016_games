@@ -1,0 +1,11 @@
+h1 Вход
+
+= simple_form_for(@user, url: users_login_path, method: :post) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email
+    = f.input :password
+
+  .form-actions
+    = f.button :submit, "Войти"

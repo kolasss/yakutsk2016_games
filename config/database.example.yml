@@ -1,0 +1,21 @@
+default: &default
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  pool:     5
+
+development:
+  <<: *default
+  database: yakutsk2016_sport_development
+  username: developer
+  password: developer
+
+test:
+  <<: *default
+  database: yakutsk2016_sport_test
+  username: developer
+  password: developer
+
+production:
+  <<: *default
+  database: yakutsk2016_sport_production

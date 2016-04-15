@@ -1,0 +1,15 @@
+default: &default
+  mailer_sender: 'no-reply@goszakazyakutia.ru'
+
+development:
+  <<: *default
+  app_host: 'localhost:3000'
+
+test:
+  <<: *default
+  app_host: 'localhost:3000'
+
+production:
+  <<: *default
+  app_host: 'info.yakutsk2016.com'
+  secret_key_base: 'your-key'
