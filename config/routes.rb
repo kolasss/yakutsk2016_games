@@ -11,4 +11,10 @@ Rails.application.routes.draw do
     post 'login'  => 'sessions#create'
     get  'logout' => 'sessions#destroy', :as => :logout
   end
+
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :countries, except: [:new, :edit]
+    end
+  end
 end
