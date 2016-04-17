@@ -11,4 +11,17 @@
 #
 
 class DisciplineTeam < ActiveRecord::Base
+  belongs_to :team
+  belongs_to :discipline
+
+  has_many :participations, dependent: :destroy
+  has_and_belongs_to_many :athletes
+
+  validates :team, presence: true
+  validates :discipline, presence: true
+  validates :rank,
+            presence: true,
+            numericality: {
+              greater_than: 0
+            }
 end

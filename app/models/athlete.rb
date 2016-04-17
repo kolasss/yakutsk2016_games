@@ -11,4 +11,13 @@
 #
 
 class Athlete < ActiveRecord::Base
+  belongs_to :team
+
+  has_and_belongs_to_many :discipline_teams
+
+  has_many :disciplines, through: :discipline_teams
+  has_many :sports, through: :disciplines
+
+  validates :name, presence: true
+  validates :team, presence: true
 end

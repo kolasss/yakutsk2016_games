@@ -10,4 +10,10 @@
 #
 
 class Sport < ActiveRecord::Base
+  has_many :disciplines, dependent: :destroy
+
+  has_many :teams, through: :disciplines
+  has_many :athletes, through: :disciplines
+
+  validates :name, presence: true
 end

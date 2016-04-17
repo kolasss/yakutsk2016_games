@@ -12,4 +12,10 @@
 #
 
 class Participation < ActiveRecord::Base
+  belongs_to :discipline_team
+  belongs_to :event
+
+  validates :discipline_team, presence: true
+  validates :event, presence: true
+  validates :win, inclusion: { in: [true, false] }
 end

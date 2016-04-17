@@ -19,4 +19,12 @@
 
 class Event < ActiveRecord::Base
   has_hierarchy
+
+  belongs_to :location
+  belongs_to :discipline
+
+  has_many :participations, dependent: :destroy
+
+  validates :location, presence: true
+  validates :discipline, presence: true
 end

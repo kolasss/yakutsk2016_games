@@ -10,4 +10,13 @@
 #
 
 class Team < ActiveRecord::Base
+  belongs_to :country
+
+  has_many :athletes, dependent: :destroy
+  has_many :discipline_teams, dependent: :destroy
+
+  has_many :disciplines, through: :discipline_teams
+  has_many :sports, through: :disciplines
+
+  validates :country, presence: true
 end
