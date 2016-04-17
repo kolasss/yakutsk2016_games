@@ -20,4 +20,5 @@ class Athlete < ActiveRecord::Base
 
   validates :name, presence: true
   validates :team, presence: true
+  #TODO сделать валидацию дисциплин тимы были только из его тимы
 end

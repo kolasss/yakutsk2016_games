@@ -12,5 +12,7 @@
 class Country < ActiveRecord::Base
   has_many :teams, dependent: :destroy
 
+  mount_uploader :flag, FileUploader
+
   validates :name, presence: true
 end

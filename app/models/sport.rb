@@ -15,5 +15,7 @@ class Sport < ActiveRecord::Base
   has_many :teams, through: :disciplines
   has_many :athletes, through: :disciplines
 
+  mount_uploader :icon, FileUploader
+
   validates :name, presence: true
 end
