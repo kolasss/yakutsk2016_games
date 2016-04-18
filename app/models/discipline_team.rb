@@ -15,7 +15,9 @@ class DisciplineTeam < ActiveRecord::Base
   belongs_to :discipline
 
   has_many :participations, dependent: :destroy
-  has_and_belongs_to_many :athletes
+  has_many :discipline_team_memberships, dependent: :destroy
+
+  has_many :athletes, through: :discipline_team_memberships
 
   validates :team, presence: true
   validates :discipline, presence: true

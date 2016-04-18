@@ -16,6 +16,8 @@ class Participation < ActiveRecord::Base
   belongs_to :event
 
   validates :discipline_team, presence: true
-  validates :event, presence: true
+  validates :event,
+            presence: true,
+            uniqueness: { scope: :discipline_team }
   validates :win, inclusion: { in: [true, false] }
 end

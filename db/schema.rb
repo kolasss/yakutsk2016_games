@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415112302) do
+ActiveRecord::Schema.define(version: 20160418070159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,21 +26,21 @@ ActiveRecord::Schema.define(version: 20160415112302) do
 
   add_index "athletes", ["team_id"], name: "index_athletes_on_team_id", using: :btree
 
-  create_table "athletes_discipline_teams", id: false, force: :cascade do |t|
-    t.integer "athlete_id",         null: false
-    t.integer "discipline_team_id", null: false
-  end
-
-  add_index "athletes_discipline_teams", ["athlete_id", "discipline_team_id"], name: "index_athletes_discipline_teams", unique: true, using: :btree
-  add_index "athletes_discipline_teams", ["athlete_id"], name: "index_athletes_discipline_teams_on_athlete_id", using: :btree
-  add_index "athletes_discipline_teams", ["discipline_team_id"], name: "index_athletes_discipline_teams_on_discipline_team_id", using: :btree
-
   create_table "countries", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "discipline_team_memberships", force: :cascade do |t|
+    t.integer "athlete_id",         null: false
+    t.integer "discipline_team_id", null: false
+  end
+
+  add_index "discipline_team_memberships", ["athlete_id", "discipline_team_id"], name: "index_athletes_discipline_teams_membership", unique: true, using: :btree
+  add_index "discipline_team_memberships", ["athlete_id"], name: "index_discipline_team_memberships_on_athlete_id", using: :btree
+  add_index "discipline_team_memberships", ["discipline_team_id"], name: "index_discipline_team_memberships_on_discipline_team_id", using: :btree
 
   create_table "discipline_teams", force: :cascade do |t|
     t.integer  "rank",          default: 9999, null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160415112302) do
     t.datetime "updated_at",                   null: false
   end
 
-  add_index "discipline_teams", ["discipline_id", "team_id"], name: "index_discipline_teams_on_discipline_id_and_team_id", unique: true, using: :btree
+  add_index "discipline_teams", ["discipline_id", "team_id"], name: "index_discipline_teams_on_discipline_id_and_team_id", using: :btree
   add_index "discipline_teams", ["discipline_id"], name: "index_discipline_teams_on_discipline_id", using: :btree
   add_index "discipline_teams", ["team_id"], name: "index_discipline_teams_on_team_id", using: :btree
 
@@ -133,8 +133,8 @@ ActiveRecord::Schema.define(version: 20160415112302) do
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
 
   add_foreign_key "athletes", "teams"
-  add_foreign_key "athletes_discipline_teams", "athletes"
-  add_foreign_key "athletes_discipline_teams", "discipline_teams"
+  add_foreign_key "discipline_team_memberships", "athletes"
+  add_foreign_key "discipline_team_memberships", "discipline_teams"
   add_foreign_key "discipline_teams", "disciplines"
   add_foreign_key "discipline_teams", "teams"
   add_foreign_key "disciplines", "sports"

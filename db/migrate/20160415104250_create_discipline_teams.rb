@@ -9,6 +9,6 @@ class CreateDisciplineTeams < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :discipline_teams, [:discipline_id, :team_id], unique: true
+    add_index :discipline_teams, [:discipline_id, :team_id]
   end
 end

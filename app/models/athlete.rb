@@ -13,12 +13,12 @@
 class Athlete < ActiveRecord::Base
   belongs_to :team
 
-  has_and_belongs_to_many :discipline_teams
+  has_many :discipline_team_memberships, dependent: :destroy
 
+  has_many :discipline_teams, through: :discipline_team_memberships
   has_many :disciplines, through: :discipline_teams
   has_many :sports, through: :disciplines
 
   validates :name, presence: true
   validates :team, presence: true
-  #TODO сделать валидацию дисциплин тимы были только из его тимы
 end
