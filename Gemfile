@@ -23,7 +23,7 @@ gem 'kaminari'
 gem 'has_hierarchy'
 
 gem "sorcery"
-gem "pundit" #authorization
+# gem "pundit" #authorization
 
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x localizations
 
@@ -31,6 +31,8 @@ gem 'rails-i18n', '~> 4.0.0' # For 4.0.x localizations
 gem 'simple_form'
 
 gem 'bootstrap-sass'
+
+gem 'rails_admin'
 
 group :development, :test do
   gem 'byebug'
