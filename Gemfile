@@ -32,7 +32,7 @@ gem 'simple_form'
 
 gem 'bootstrap-sass'
 
-gem 'rails_admin'
+gem 'rails_admin' # TODO удалять или нет?
 
 group :development, :test do
   gem 'byebug'

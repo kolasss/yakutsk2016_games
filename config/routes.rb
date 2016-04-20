@@ -17,9 +17,22 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :countries, except: [:new, :edit] do
+        resources :athletes, only: [:index, :create]
         resources :teams, only: [:index, :create]
+        resources :sports, only: [:show], controller: 'countries_sports'
       end
+      resources :athletes, only: [:show, :update, :destroy]
       resources :teams, only: [:show, :update, :destroy]
+
+      resources :sports, except: [:new, :edit] do
+        resources :disciplines, only: [:index, :create]
+      end
+      resources :disciplines, only: [:show, :update, :destroy]
+
+      resources :locations, except: [:new, :edit] do
+        # resources :events, only: [:index, :create]
+      end
+      resources :events, only: [:index, :show, :update, :destroy]
     end
   end
 end

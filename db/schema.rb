@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20160420084450) do
   add_index "team_memberships", ["team_id"], name: "index_team_memberships_on_team_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
+    t.string   "name"
     t.integer  "rank"
     t.integer  "discipline_id", null: false
     t.integer  "country_id",    null: false
