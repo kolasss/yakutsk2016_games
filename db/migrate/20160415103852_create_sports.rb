@@ -3,6 +3,7 @@ class CreateSports < ActiveRecord::Migration
     create_table :sports do |t|
       t.string :name, null: false
       t.string :icon
+      t.text :info
 
       t.timestamps null: false
     end

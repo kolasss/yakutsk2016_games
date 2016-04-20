@@ -1,10 +1,10 @@
 # == Schema Information
 #
-# Table name: discipline_team_memberships
+# Table name: team_memberships
 #
-#  id                 :integer          not null, primary key
-#  athlete_id         :integer          not null
-#  discipline_team_id :integer          not null
+#  id         :integer          not null, primary key
+#  athlete_id :integer          not null
+#  team_id    :integer          not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

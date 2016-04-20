@@ -11,48 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418070159) do
+ActiveRecord::Schema.define(version: 20160420084450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "athletes", force: :cascade do |t|
     t.string   "name",       null: false
+    t.string   "photo"
     t.text     "info"
-    t.integer  "team_id",    null: false
+    t.integer  "country_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "athletes", ["team_id"], name: "index_athletes_on_team_id", using: :btree
+  add_index "athletes", ["country_id"], name: "index_athletes_on_country_id", using: :btree
+
+  create_table "contest_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+  end
+
+  add_index "contest_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "contest_anc_desc_idx", unique: true, using: :btree
+  add_index "contest_hierarchies", ["descendant_id"], name: "contest_desc_idx", using: :btree
+
+  create_table "contests", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "published_at"
+    t.integer  "parent_id"
+    t.integer  "sort_order"
+    t.integer  "location_id",   null: false
+    t.integer  "discipline_id", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "contests", ["discipline_id"], name: "index_contests_on_discipline_id", using: :btree
+  add_index "contests", ["location_id"], name: "index_contests_on_location_id", using: :btree
+  add_index "contests", ["parent_id"], name: "index_contests_on_parent_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "flag"
+    t.text     "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "discipline_team_memberships", force: :cascade do |t|
-    t.integer "athlete_id",         null: false
-    t.integer "discipline_team_id", null: false
-  end
-
-  add_index "discipline_team_memberships", ["athlete_id", "discipline_team_id"], name: "index_athletes_discipline_teams_membership", unique: true, using: :btree
-  add_index "discipline_team_memberships", ["athlete_id"], name: "index_discipline_team_memberships_on_athlete_id", using: :btree
-  add_index "discipline_team_memberships", ["discipline_team_id"], name: "index_discipline_team_memberships_on_discipline_team_id", using: :btree
-
-  create_table "discipline_teams", force: :cascade do |t|
-    t.integer  "rank",          default: 9999, null: false
-    t.integer  "discipline_id",                null: false
-    t.integer  "team_id",                      null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  add_index "discipline_teams", ["discipline_id", "team_id"], name: "index_discipline_teams_on_discipline_id_and_team_id", using: :btree
-  add_index "discipline_teams", ["discipline_id"], name: "index_discipline_teams_on_discipline_id", using: :btree
-  add_index "discipline_teams", ["team_id"], name: "index_discipline_teams_on_team_id", using: :btree
 
   create_table "disciplines", force: :cascade do |t|
     t.string   "name",                       null: false
@@ -65,59 +71,67 @@ ActiveRecord::Schema.define(version: 20160418070159) do
   add_index "disciplines", ["sport_id"], name: "index_disciplines_on_sport_id", using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "start_at"
-    t.datetime "published_at"
-    t.string   "path"
-    t.integer  "depth"
-    t.integer  "position"
-    t.integer  "parent_id"
-    t.integer  "children_count"
-    t.integer  "location_id",    null: false
-    t.integer  "discipline_id",  null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.date     "start_date",  null: false
+    t.date     "end_date",    null: false
+    t.text     "info"
+    t.integer  "location_id", null: false
+    t.integer  "sport_id",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "events", ["discipline_id"], name: "index_events_on_discipline_id", using: :btree
   add_index "events", ["location_id"], name: "index_events_on_location_id", using: :btree
-  add_index "events", ["parent_id"], name: "index_events_on_parent_id", using: :btree
+  add_index "events", ["sport_id"], name: "index_events_on_sport_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name",       null: false
     t.text     "address"
+    t.text     "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "participations", force: :cascade do |t|
     t.string   "score"
-    t.boolean  "win",                default: false, null: false
-    t.integer  "discipline_team_id",                 null: false
-    t.integer  "event_id",                           null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.integer  "rank"
+    t.integer  "team_id",    null: false
+    t.integer  "contest_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "participations", ["discipline_team_id", "event_id"], name: "index_participations_on_discipline_team_id_and_event_id", unique: true, using: :btree
-  add_index "participations", ["discipline_team_id"], name: "index_participations_on_discipline_team_id", using: :btree
-  add_index "participations", ["event_id"], name: "index_participations_on_event_id", using: :btree
+  add_index "participations", ["contest_id"], name: "index_participations_on_contest_id", using: :btree
+  add_index "participations", ["team_id", "contest_id"], name: "index_participations_on_team_id_and_contest_id", unique: true, using: :btree
+  add_index "participations", ["team_id"], name: "index_participations_on_team_id", using: :btree
 
   create_table "sports", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "icon"
+    t.text     "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "team_memberships", force: :cascade do |t|
+    t.integer "athlete_id", null: false
+    t.integer "team_id",    null: false
+  end
+
+  add_index "team_memberships", ["athlete_id", "team_id"], name: "index_team_memberships_on_athlete_id_and_team_id", unique: true, using: :btree
+  add_index "team_memberships", ["athlete_id"], name: "index_team_memberships_on_athlete_id", using: :btree
+  add_index "team_memberships", ["team_id"], name: "index_team_memberships_on_team_id", using: :btree
+
   create_table "teams", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "country_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "rank"
+    t.integer  "discipline_id", null: false
+    t.integer  "country_id",    null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "teams", ["country_id"], name: "index_teams_on_country_id", using: :btree
+  add_index "teams", ["discipline_id", "country_id"], name: "index_teams_on_discipline_id_and_country_id", using: :btree
+  add_index "teams", ["discipline_id"], name: "index_teams_on_discipline_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                        null: false
@@ -132,16 +146,17 @@ ActiveRecord::Schema.define(version: 20160418070159) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
 
-  add_foreign_key "athletes", "teams"
-  add_foreign_key "discipline_team_memberships", "athletes"
-  add_foreign_key "discipline_team_memberships", "discipline_teams"
-  add_foreign_key "discipline_teams", "disciplines"
-  add_foreign_key "discipline_teams", "teams"
+  add_foreign_key "athletes", "countries"
+  add_foreign_key "contests", "contests", column: "parent_id"
+  add_foreign_key "contests", "disciplines"
+  add_foreign_key "contests", "locations"
   add_foreign_key "disciplines", "sports"
-  add_foreign_key "events", "disciplines"
-  add_foreign_key "events", "events", column: "parent_id"
   add_foreign_key "events", "locations"
-  add_foreign_key "participations", "discipline_teams"
-  add_foreign_key "participations", "events"
+  add_foreign_key "events", "sports"
+  add_foreign_key "participations", "contests"
+  add_foreign_key "participations", "teams"
+  add_foreign_key "team_memberships", "athletes"
+  add_foreign_key "team_memberships", "teams"
   add_foreign_key "teams", "countries"
+  add_foreign_key "teams", "disciplines"
 end

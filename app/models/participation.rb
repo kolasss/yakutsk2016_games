@@ -2,22 +2,26 @@
 #
 # Table name: participations
 #
-#  id                 :integer          not null, primary key
-#  score              :string
-#  win                :boolean          default("false"), not null
-#  discipline_team_id :integer          not null
-#  event_id           :integer          not null
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  id         :integer          not null, primary key
+#  score      :string
+#  rank       :integer
+#  team_id    :integer          not null
+#  contest_id :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class Participation < ActiveRecord::Base
-  belongs_to :discipline_team
-  belongs_to :event
+  belongs_to :team
+  belongs_to :contest
 
-  validates :discipline_team, presence: true
-  validates :event,
+  validates :team, presence: true
+  validates :contest,
             presence: true,
-            uniqueness: { scope: :discipline_team }
-  validates :win, inclusion: { in: [true, false] }
+            uniqueness: { scope: :team }
+  validates :rank,
+            numericality: {
+              greater_than: 0
+            },
+            allow_nil: true
 end

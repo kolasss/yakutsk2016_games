@@ -2,29 +2,23 @@
 #
 # Table name: events
 #
-#  id             :integer          not null, primary key
-#  name           :string
-#  start_at       :datetime
-#  published_at   :datetime
-#  path           :string
-#  depth          :integer
-#  position       :integer
-#  parent_id      :integer
-#  children_count :integer
-#  location_id    :integer          not null
-#  discipline_id  :integer          not null
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id          :integer          not null, primary key
+#  start_date  :date             not null
+#  end_date    :date             not null
+#  info        :text
+#  location_id :integer          not null
+#  sport_id    :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 class Event < ActiveRecord::Base
-  has_hierarchy
-
+  belongs_to :sport
   belongs_to :location
-  belongs_to :discipline
 
-  has_many :participations, dependent: :destroy
-
+  # validates :sport, presence: true
   validates :location, presence: true
-  validates :discipline, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  # validates :info, presence: true
 end

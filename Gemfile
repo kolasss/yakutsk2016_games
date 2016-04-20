@@ -20,7 +20,7 @@ gem 'mini_magick'
 # Pagination
 gem 'kaminari'
 
-gem 'has_hierarchy'
+gem 'closure_tree' # tree structure
 
 gem "sorcery"
 # gem "pundit" #authorization

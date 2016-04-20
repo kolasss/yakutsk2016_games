@@ -1,15 +1,12 @@
-class CreateEvents < ActiveRecord::Migration
+class CreateContests < ActiveRecord::Migration
   def change
-    create_table :events do |t|
+    create_table :contests do |t|
       t.string :name
       t.datetime :start_at
       t.datetime :published_at
 
-      t.string :path
-      t.integer :depth
-      t.integer :position
       t.integer :parent_id
-      t.integer :children_count
+      t.integer :sort_order
 
       t.references :location, index: true, foreign_key: true, null: false
       t.references :discipline, index: true, foreign_key: true, null: false
@@ -17,7 +14,7 @@ class CreateEvents < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :events, :parent_id
-    add_foreign_key :events, :events, column: :parent_id
+    add_index :contests, :parent_id
+    add_foreign_key :contests, :contests, column: :parent_id
   end
 end

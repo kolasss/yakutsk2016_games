@@ -2,17 +2,18 @@
 #
 # Table name: teams
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  country_id :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  rank          :integer
+#  discipline_id :integer          not null
+#  country_id    :integer          not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  rank: 1
 
 two:
-  name: MyString
+  rank: 1

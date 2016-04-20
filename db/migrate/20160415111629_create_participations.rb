@@ -2,14 +2,14 @@ class CreateParticipations < ActiveRecord::Migration
   def change
     create_table :participations do |t|
       t.string :score
-      t.boolean :win, default: false, null: false
+      t.integer :rank
 
-      t.references :discipline_team, index: true, foreign_key: true, null: false
-      t.references :event, index: true, foreign_key: true, null: false
+      t.references :team, index: true, foreign_key: true, null: false
+      t.references :contest, index: true, foreign_key: true, null: false
 
       t.timestamps null: false
     end
 
-    add_index :participations, [:discipline_team_id, :event_id], unique: true
+    add_index :participations, [:team_id, :contest_id], unique: true
   end
 end
