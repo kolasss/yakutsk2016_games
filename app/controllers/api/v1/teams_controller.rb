@@ -49,7 +49,9 @@ class Api::V1::TeamsController < Api::ApiController
 
     def team_params
       params.require(:team).permit(
-        :name
+        :name,
+        :discipline,
+        :rank
       )
     end
 end

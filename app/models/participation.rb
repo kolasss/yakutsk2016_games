@@ -24,4 +24,14 @@ class Participation < ActiveRecord::Base
               greater_than: 0
             },
             allow_nil: true
+
+  validate :contest_and_team_discipline_equals
+
+  private
+
+    def contest_and_team_discipline_equals
+      if self.team.discipline != self.contest.discipline
+        errors.add(:team_id, "дисциплина не соотвествует")
+      end
+    end
 end
