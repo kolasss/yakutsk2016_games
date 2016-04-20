@@ -16,7 +16,10 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      resources :countries, except: [:new, :edit]
+      resources :countries, except: [:new, :edit] do
+        resources :teams, only: [:index, :create]
+      end
+      resources :teams, only: [:show, :update, :destroy]
     end
   end
 end
