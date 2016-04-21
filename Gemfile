@@ -26,14 +26,14 @@ gem 'activerecord_json_validator'
 gem "sorcery"
 # gem "pundit" #authorization
 
+
+## ========Убрать???
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x localizations
-
-# form generator
-gem 'simple_form'
-
+gem 'simple_form' # form generator
 gem 'bootstrap-sass'
-
 gem 'rails_admin' # TODO удалять или нет?
+## ========Убрать???
+
 
 group :development, :test do
   gem 'byebug'
@@ -41,7 +41,10 @@ group :development, :test do
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  # ruby deployment system
+  gem "capistrano", "~> 3.4"
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rbenv', '~> 2.0'
+  gem 'capistrano-bundler', '~> 1.1.2'
 end
-

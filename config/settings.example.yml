@@ -11,5 +11,5 @@ test:
 
 production:
   <<: *default
-  app_host: 'info.yakutsk2016.com'
+  app_host: 'test.yakutsk2016.com'
   secret_key_base: 'your-key'
