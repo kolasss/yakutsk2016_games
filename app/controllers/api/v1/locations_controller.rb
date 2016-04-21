@@ -44,9 +44,9 @@ class Api::V1::LocationsController < Api::ApiController
 
     def location_params
       params.require(:location).permit(
-        :name,
-        :address,
-        :info
+        {name: AVAILABLE_LOCALES},
+        {address: AVAILABLE_LOCALES},
+        {info: AVAILABLE_LOCALES}
       )
     end
 end

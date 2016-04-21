@@ -44,9 +44,9 @@ class Api::V1::CountriesController < Api::ApiController
 
     def country_params
       params.require(:country).permit(
-        :name,
-        :flag,
-        :info
+        {name: AVAILABLE_LOCALES},
+        {info: AVAILABLE_LOCALES},
+        :flag
       )
     end
 end

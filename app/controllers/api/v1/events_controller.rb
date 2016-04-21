@@ -52,7 +52,7 @@ class Api::V1::EventsController < Api::ApiController
       params.require(:event).permit(
         :start_date,
         :end_date,
-        :info,
+        {info: AVAILABLE_LOCALES},
         :sport_id
       )
     end

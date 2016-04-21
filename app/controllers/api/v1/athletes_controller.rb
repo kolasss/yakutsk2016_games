@@ -49,9 +49,9 @@ class Api::V1::AthletesController < Api::ApiController
 
     def athlete_params
       params.require(:athlete).permit(
-        :name,
-        :photo,
-        :info
+        {name: AVAILABLE_LOCALES},
+        {info: AVAILABLE_LOCALES},
+        :photo
       )
     end
 end

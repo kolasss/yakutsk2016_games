@@ -44,9 +44,9 @@ class Api::V1::SportsController < Api::ApiController
 
     def sport_params
       params.require(:sport).permit(
-        :name,
-        :icon,
-        :info
+        {name: AVAILABLE_LOCALES},
+        {info: AVAILABLE_LOCALES},
+        :icon
       )
     end
 end

@@ -49,7 +49,7 @@ class Api::V1::DisciplinesController < Api::ApiController
 
     def discipline_params
       params.require(:discipline).permit(
-        :name,
+        {name: AVAILABLE_LOCALES},
         :finished
       )
     end
