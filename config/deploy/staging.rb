@@ -9,6 +9,9 @@
 
 server '128.199.58.9', user: 'agrosakha', roles: %w{web app db}, port: 53422
 
+# capistrano-rails
+set :rails_env, 'production'
+
 # role-based syntax
 # ==================
 
