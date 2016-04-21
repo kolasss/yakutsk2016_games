@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  start_date  :date             not null
 #  end_date    :date             not null
-#  info        :text
+#  info        :jsonb            default("{}")
 #  location_id :integer          not null
 #  sport_id    :integer          not null
 #  created_at  :datetime         not null
@@ -13,6 +13,8 @@
 #
 
 class Event < ActiveRecord::Base
+  include JsonValidation
+
   belongs_to :sport
   belongs_to :location
 
@@ -21,4 +23,7 @@ class Event < ActiveRecord::Base
   validates :start_date, presence: true
   validates :end_date, presence: true
   # validates :info, presence: true
+  validates :info,
+            allow_blank: true,
+            json: JSON_VALIDATION
 end

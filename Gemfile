@@ -21,6 +21,7 @@ gem 'mini_magick'
 gem 'kaminari'
 
 gem 'closure_tree' # tree structure
+gem 'activerecord_json_validator'
 
 gem "sorcery"
 # gem "pundit" #authorization

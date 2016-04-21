@@ -1,7 +1,7 @@
 class CreateContests < ActiveRecord::Migration
   def change
     create_table :contests do |t|
-      t.string :name
+      t.jsonb :name, default: '{}'
       t.datetime :start_at
       t.datetime :published_at
 

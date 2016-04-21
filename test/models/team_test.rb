@@ -3,6 +3,7 @@
 # Table name: teams
 #
 #  id            :integer          not null, primary key
+#  name          :jsonb            default("{}")
 #  rank          :integer
 #  discipline_id :integer          not null
 #  country_id    :integer          not null

@@ -3,7 +3,7 @@
 # Table name: contests
 #
 #  id            :integer          not null, primary key
-#  name          :string
+#  name          :jsonb            default("{}")
 #  start_at      :datetime
 #  published_at  :datetime
 #  parent_id     :integer
@@ -15,6 +15,8 @@
 #
 
 class Contest < ActiveRecord::Base
+  include JsonValidation
+
   has_closure_tree dependent: :destroy,
                    order: 'sort_order'
 
@@ -25,4 +27,7 @@ class Contest < ActiveRecord::Base
 
   validates :location, presence: true
   validates :discipline, presence: true
+  validates :name,
+            allow_blank: true,
+            json: JSON_VALIDATION
 end

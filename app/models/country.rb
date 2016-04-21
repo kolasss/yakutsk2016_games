@@ -3,14 +3,16 @@
 # Table name: countries
 #
 #  id         :integer          not null, primary key
-#  name       :string           not null
+#  name       :jsonb            default("{}"), not null
 #  flag       :string
-#  info       :text
+#  info       :jsonb            default("{}")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 class Country < ActiveRecord::Base
+  include JsonValidation
+
   has_many :athletes, dependent: :destroy
   has_many :teams, dependent: :destroy
 
@@ -19,5 +21,10 @@ class Country < ActiveRecord::Base
 
   mount_uploader :flag, FileUploader
 
-  validates :name, presence: true
+  validates :name,
+            presence: true,
+            json: JSON_VALIDATION
+  validates :info,
+            allow_blank: true,
+            json: JSON_VALIDATION
 end

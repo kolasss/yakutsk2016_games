@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  start_date  :date             not null
 #  end_date    :date             not null
-#  info        :text
+#  info        :jsonb            default("{}")
 #  location_id :integer          not null
 #  sport_id    :integer          not null
 #  created_at  :datetime         not null

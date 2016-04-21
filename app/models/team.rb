@@ -3,6 +3,7 @@
 # Table name: teams
 #
 #  id            :integer          not null, primary key
+#  name          :jsonb            default("{}")
 #  rank          :integer
 #  discipline_id :integer          not null
 #  country_id    :integer          not null
@@ -11,6 +12,8 @@
 #
 
 class Team < ActiveRecord::Base
+  include JsonValidation
+
   belongs_to :country
   belongs_to :discipline
 
@@ -26,4 +29,7 @@ class Team < ActiveRecord::Base
               greater_than: 0
             },
             allow_nil: true
+  validates :name,
+            allow_blank: true,
+            json: JSON_VALIDATION
 end

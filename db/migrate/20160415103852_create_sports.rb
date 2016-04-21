@@ -1,9 +1,9 @@
 class CreateSports < ActiveRecord::Migration
   def change
     create_table :sports do |t|
-      t.string :name, null: false
+      t.jsonb :name, null: false, default: '{}'
       t.string :icon
-      t.text :info
+      t.jsonb :info, default: '{}'
 
       t.timestamps null: false
     end

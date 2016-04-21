@@ -1,0 +1,7 @@
+ru:
+  activerecord:
+#     errors:
+#       messages:
+#         invalid_json: неправильный формат json
+
+# ru.activerecord.errors.models.sport.attributes.name.invalid_json

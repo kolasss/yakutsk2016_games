@@ -1,9 +1,9 @@
 class CreateAthletes < ActiveRecord::Migration
   def change
     create_table :athletes do |t|
-      t.string :name, null: false
+      t.jsonb :name, null: false, default: '{}'
       t.string :photo
-      t.text :info
+      t.jsonb :info, default: '{}'
 
       t.references :country, index: true, foreign_key: true, null: false
 

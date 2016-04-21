@@ -3,7 +3,7 @@
 # Table name: contests
 #
 #  id            :integer          not null, primary key
-#  name          :string
+#  name          :jsonb            default("{}")
 #  start_at      :datetime
 #  published_at  :datetime
 #  parent_id     :integer

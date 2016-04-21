@@ -3,9 +3,9 @@
 # Table name: sports
 #
 #  id         :integer          not null, primary key
-#  name       :string           not null
+#  name       :jsonb            default("{}"), not null
 #  icon       :string
-#  info       :text
+#  info       :jsonb            default("{}")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
