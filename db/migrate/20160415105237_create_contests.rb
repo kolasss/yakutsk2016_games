@@ -8,7 +8,6 @@ class CreateContests < ActiveRecord::Migration
       t.integer :parent_id
       t.integer :sort_order
 
-      t.references :location, index: true, foreign_key: true, null: false
       t.references :discipline, index: true, foreign_key: true, null: false
 
       t.timestamps null: false

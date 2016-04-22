@@ -18,6 +18,8 @@ class Event < ActiveRecord::Base
   belongs_to :sport
   belongs_to :location
 
+  before_validation :set_location
+
   # validates :sport, presence: true
   validates :location, presence: true
   validates :start_date, presence: true
@@ -26,4 +28,10 @@ class Event < ActiveRecord::Base
   validates :info,
             allow_blank: true,
             json: JSON_VALIDATION
+
+  private
+
+    def set_location
+      self.location = self.sport.location if self.sport.present?
+    end
 end

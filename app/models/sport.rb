@@ -13,6 +13,8 @@
 class Sport < ActiveRecord::Base
   include JsonValidation
 
+  belongs_to :location
+
   has_many :disciplines, dependent: :destroy
   has_many :events, dependent: :destroy
 
@@ -21,6 +23,7 @@ class Sport < ActiveRecord::Base
 
   mount_uploader :icon, FileUploader
 
+  validates :location, presence: true
   validates :name,
             presence: true,
             json: JSON_VALIDATION

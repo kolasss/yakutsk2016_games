@@ -20,12 +20,10 @@ class Contest < ActiveRecord::Base
   has_closure_tree dependent: :destroy,
                    order: 'sort_order'
 
-  belongs_to :location
   belongs_to :discipline
 
   has_many :participations, dependent: :destroy
 
-  validates :location, presence: true
   validates :discipline, presence: true
   validates :name,
             allow_blank: true,

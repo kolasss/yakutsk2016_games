@@ -27,3 +27,4 @@ https://mozilla.github.io/server-side-tls/ssl-config-generator/
 ## deploy
 
 bundle exec cap production deploy
+bundle exec cap staging deploy

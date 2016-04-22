@@ -42,14 +42,12 @@ ActiveRecord::Schema.define(version: 20160420084450) do
     t.datetime "published_at"
     t.integer  "parent_id"
     t.integer  "sort_order"
-    t.integer  "location_id",                null: false
     t.integer  "discipline_id",              null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
   add_index "contests", ["discipline_id"], name: "index_contests_on_discipline_id", using: :btree
-  add_index "contests", ["location_id"], name: "index_contests_on_location_id", using: :btree
   add_index "contests", ["parent_id"], name: "index_contests_on_parent_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
@@ -105,12 +103,15 @@ ActiveRecord::Schema.define(version: 20160420084450) do
   add_index "participations", ["team_id"], name: "index_participations_on_team_id", using: :btree
 
   create_table "sports", force: :cascade do |t|
-    t.jsonb    "name",       default: {}, null: false
+    t.jsonb    "name",        default: {}, null: false
     t.string   "icon"
-    t.jsonb    "info",       default: {}
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.jsonb    "info",        default: {}
+    t.integer  "location_id",              null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
+
+  add_index "sports", ["location_id"], name: "index_sports_on_location_id", using: :btree
 
   create_table "team_memberships", force: :cascade do |t|
     t.integer "athlete_id", null: false
@@ -147,12 +148,12 @@ ActiveRecord::Schema.define(version: 20160420084450) do
   add_foreign_key "athletes", "countries"
   add_foreign_key "contests", "contests", column: "parent_id"
   add_foreign_key "contests", "disciplines"
-  add_foreign_key "contests", "locations"
   add_foreign_key "disciplines", "sports"
   add_foreign_key "events", "locations"
   add_foreign_key "events", "sports"
   add_foreign_key "participations", "contests"
   add_foreign_key "participations", "teams"
+  add_foreign_key "sports", "locations"
   add_foreign_key "team_memberships", "athletes"
   add_foreign_key "team_memberships", "teams"
   add_foreign_key "teams", "countries"

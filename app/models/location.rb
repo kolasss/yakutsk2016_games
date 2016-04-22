@@ -13,7 +13,7 @@
 class Location < ActiveRecord::Base
   include JsonValidation
 
-  has_many :contests, dependent: :destroy
+  has_many :sports, dependent: :restrict_with_error
   has_many :events, dependent: :destroy
 
   validates :name,

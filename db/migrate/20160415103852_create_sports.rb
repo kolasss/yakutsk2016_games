@@ -5,6 +5,8 @@ class CreateSports < ActiveRecord::Migration
       t.string :icon
       t.jsonb :info, default: '{}'
 
+      t.references :location, index: true, foreign_key: true, null: false
+
       t.timestamps null: false
     end
   end
