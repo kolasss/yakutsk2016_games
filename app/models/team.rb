@@ -22,6 +22,8 @@ class Team < ActiveRecord::Base
 
   has_many :athletes, through: :team_memberships
 
+  # before_validation :set_name
+
   validates :country, presence: true
   validates :discipline, presence: true
   validates :rank,
@@ -32,4 +34,10 @@ class Team < ActiveRecord::Base
   validates :name,
             allow_blank: true,
             json: JSON_VALIDATION
+
+  # private
+
+  #   def set_name
+  #     self.name ||= self.athletes.first.name if self.athletes.count == 1
+  #   end
 end

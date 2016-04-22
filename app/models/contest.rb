@@ -28,4 +28,6 @@ class Contest < ActiveRecord::Base
   validates :name,
             allow_blank: true,
             json: JSON_VALIDATION
+
+  scope :published, -> { where.not(published_at: nil).order(published_at: :desc) }
 end
