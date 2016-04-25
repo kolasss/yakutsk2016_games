@@ -6,6 +6,7 @@ class Api::V1::LocationsController < Api::ApiController
   end
 
   def show
+    @events = @location.events
   end
 
   def create

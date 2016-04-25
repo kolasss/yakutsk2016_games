@@ -18,7 +18,9 @@ class Athlete < ActiveRecord::Base
 
   has_many :team_memberships, dependent: :destroy
 
-  has_many :teams, through: :team_memberships
+  has_many :teams,          through: :team_memberships
+  has_many :participations, through: :teams
+  has_many :contests,       through: :participations
   # has_many :disciplines, through: :teams
   # has_many :sports, through: :disciplines
 

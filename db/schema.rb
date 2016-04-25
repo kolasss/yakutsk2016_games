@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 20160420084450) do
     t.jsonb    "name",        default: {}, null: false
     t.string   "icon"
     t.jsonb    "info",        default: {}
+    t.integer  "format",      default: 0,  null: false
     t.integer  "location_id",              null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false

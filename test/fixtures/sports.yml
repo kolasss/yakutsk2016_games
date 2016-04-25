@@ -6,6 +6,7 @@
 #  name        :jsonb            not null
 #  icon        :string
 #  info        :jsonb
+#  format      :integer          default(0), not null
 #  location_id :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

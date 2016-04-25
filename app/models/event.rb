@@ -29,6 +29,8 @@ class Event < ActiveRecord::Base
             allow_blank: true,
             json: JSON_VALIDATION
 
+  scope :actual_for, -> (date) { where('end_date >= ?', date) }
+
   private
 
     def set_location

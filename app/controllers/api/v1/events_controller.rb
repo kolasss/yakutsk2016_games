@@ -4,9 +4,11 @@ class Api::V1::EventsController < Api::ApiController
 
   def index
     # @events = @location.events
-    @events = Event.all
+    date = Date.parse params[:date]
+    @events = Event.actual_for date
   end
 
+  # TODO убрать??
   def show
   end
 

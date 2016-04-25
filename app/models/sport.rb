@@ -6,6 +6,7 @@
 #  name        :jsonb            not null
 #  icon        :string
 #  info        :jsonb
+#  format      :integer          default(0), not null
 #  location_id :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -26,7 +27,14 @@ class Sport < ActiveRecord::Base
 
   mount_uploader :icon, FileUploader
 
+  enum format: {
+    grid: 0,
+    circular: 10,
+    simple: 20
+  }
+
   validates :location, presence: true
+  validates :format, presence: true
   validates :name,
             presence: true,
             json: JSON_VALIDATION

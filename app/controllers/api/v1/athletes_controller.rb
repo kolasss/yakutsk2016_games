@@ -7,6 +7,7 @@ class Api::V1::AthletesController < Api::ApiController
   end
 
   def show
+    @published_contests = @athlete.contests.published.includes(:participations)
   end
 
   def create
