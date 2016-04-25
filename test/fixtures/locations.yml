@@ -3,9 +3,9 @@
 # Table name: locations
 #
 #  id         :integer          not null, primary key
-#  name       :jsonb            default("{}"), not null
-#  address    :jsonb            default("{}")
-#  info       :jsonb            default("{}")
+#  name       :jsonb            not null
+#  address    :jsonb
+#  info       :jsonb
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

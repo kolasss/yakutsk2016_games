@@ -2,12 +2,13 @@
 #
 # Table name: sports
 #
-#  id         :integer          not null, primary key
-#  name       :jsonb            default("{}"), not null
-#  icon       :string
-#  info       :jsonb            default("{}")
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  name        :jsonb            not null
+#  icon        :string
+#  info        :jsonb
+#  location_id :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 class Sport < ActiveRecord::Base

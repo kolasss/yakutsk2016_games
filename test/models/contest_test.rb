@@ -3,12 +3,11 @@
 # Table name: contests
 #
 #  id            :integer          not null, primary key
-#  name          :jsonb            default("{}")
+#  name          :jsonb
 #  start_at      :datetime
 #  published_at  :datetime
 #  parent_id     :integer
 #  sort_order    :integer
-#  location_id   :integer          not null
 #  discipline_id :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null

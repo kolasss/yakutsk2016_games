@@ -3,8 +3,8 @@
 # Table name: disciplines
 #
 #  id         :integer          not null, primary key
-#  name       :jsonb            default("{}"), not null
-#  finished   :boolean          default("false"), not null
+#  name       :jsonb            not null
+#  finished   :boolean          default(FALSE), not null
 #  sport_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

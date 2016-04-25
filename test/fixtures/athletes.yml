@@ -3,9 +3,9 @@
 # Table name: athletes
 #
 #  id         :integer          not null, primary key
-#  name       :jsonb            default("{}"), not null
+#  name       :jsonb            not null
 #  photo      :string
-#  info       :jsonb            default("{}")
+#  info       :jsonb
 #  country_id :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

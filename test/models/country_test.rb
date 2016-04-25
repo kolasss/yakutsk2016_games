@@ -3,9 +3,9 @@
 # Table name: countries
 #
 #  id         :integer          not null, primary key
-#  name       :jsonb            default("{}"), not null
+#  name       :jsonb            not null
 #  flag       :string
-#  info       :jsonb            default("{}")
+#  info       :jsonb
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
