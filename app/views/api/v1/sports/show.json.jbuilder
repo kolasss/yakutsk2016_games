@@ -4,6 +4,7 @@ json.partial! 'sport', sport: @sport
 # json.sport @sport, partial: 'api/v1/sports/sport', as: :sport
 
 json.country_ids @sport.country_ids
+# json.team_ids @sport.team_ids
 # json.countries @sport.countries
 
 json.contests @published_contests,

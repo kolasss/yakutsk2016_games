@@ -18,12 +18,22 @@ class Discipline < ActiveRecord::Base
   has_many :teams, dependent: :destroy
   has_many :contests, dependent: :destroy
 
-  # has_many :teams, through: :teams
+  has_many :countries, through: :teams
   # has_many :athletes, through: :teams
+
+  after_save :update_countries_medals
 
   validates :sport, presence: true
   validates :finished, inclusion: { in: [true, false] }
   validates :name,
             presence: true,
             json: JSON_VALIDATION
+
+  scope :finished, -> { where(finished: true) }
+
+  private
+
+    def update_countries_medals
+      self.countries.each(&:refresh_medals!) if finished_changed?
+    end
 end

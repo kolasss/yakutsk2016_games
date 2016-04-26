@@ -51,11 +51,14 @@ ActiveRecord::Schema.define(version: 20160420084450) do
   add_index "contests", ["parent_id"], name: "index_contests_on_parent_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
-    t.jsonb    "name",       default: {}, null: false
+    t.jsonb    "name",         default: {}, null: false
     t.string   "flag"
-    t.jsonb    "info",       default: {}
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.jsonb    "info",         default: {}
+    t.integer  "gold_count",   default: 0,  null: false
+    t.integer  "silver_count", default: 0,  null: false
+    t.integer  "bronze_count", default: 0,  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "disciplines", force: :cascade do |t|

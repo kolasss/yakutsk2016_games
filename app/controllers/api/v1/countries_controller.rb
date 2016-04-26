@@ -6,6 +6,12 @@ class Api::V1::CountriesController < Api::ApiController
   end
 
   def show
+    @published_contests = @country.contests.published.includes(:participations)
+    @events = @country.events
+    if params[:date].present?
+      date = Date.parse params[:date]
+      @events = @events.actual_for date
+    end
   end
 
   def create

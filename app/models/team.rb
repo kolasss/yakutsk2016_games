@@ -21,6 +21,7 @@ class Team < ActiveRecord::Base
   has_many :team_memberships, dependent: :destroy
 
   has_many :athletes, through: :team_memberships
+  has_many :contests, through: :participations
 
   # before_validation :set_name
 
