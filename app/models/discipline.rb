@@ -19,7 +19,7 @@ class Discipline < ActiveRecord::Base
   has_many :contests, dependent: :destroy
 
   has_many :countries, through: :teams
-  # has_many :athletes, through: :teams
+  has_many :athletes, through: :teams
 
   after_save :update_countries_medals
 
