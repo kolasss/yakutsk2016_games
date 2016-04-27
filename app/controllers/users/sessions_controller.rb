@@ -6,7 +6,7 @@ class Users::SessionsController < ApplicationController
   end
 
   def create
-    if @user = login(user_params[:email], user_params[:password])
+    if @user = login(user_params[:email], user_params[:password], true)
       redirect_back_or_to(root_path, notice: 'Вход в систему выполнен.')
     else
       flash.now[:alert] = 'Неверные email или пароль.'

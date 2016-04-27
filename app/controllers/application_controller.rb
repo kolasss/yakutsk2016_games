@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
     def not_authenticated
-      redirect_to users_login_path, alert: "Войдите в систему!"
+      head :unauthorized
+      # redirect_to users_login_path, alert: "Войдите в систему!"
     end
 end

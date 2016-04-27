@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   # регистрация и работа со своим аккаунтом
   namespace :users do
-    get  'signup' => 'registrations#new', as: :signup
-    post 'signup' => 'registrations#create'
+    get  'registration' => 'registrations#new', as: :registration
+    post 'registration' => 'registrations#create'
 
     get  'login'  => 'sessions#new',     :as => :login
     post 'login'  => 'sessions#create'

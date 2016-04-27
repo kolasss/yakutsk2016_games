@@ -1,1 +1,9 @@
 h1 Home
+
+ul
+  - if logged_in?
+    li = current_user.email
+    li = link_to "Выход", users_logout_path
+  - else
+    li = link_to "Регистрация", users_registration_path
+    li = link_to "Вход", users_login_path
