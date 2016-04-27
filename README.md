@@ -30,3 +30,4 @@ bundle exec cap production deploy
 bundle exec cap staging deploy
 
 - bin/rake db:schema:load db:seed
+- passenger-config restart-app

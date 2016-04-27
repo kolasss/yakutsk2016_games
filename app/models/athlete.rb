@@ -24,6 +24,8 @@ class Athlete < ActiveRecord::Base
   has_many :disciplines, through: :teams
   # has_many :sports, through: :disciplines
 
+  mount_uploader :photo, FileUploader
+
   validates :country, presence: true
   validates :name,
             presence: true,
