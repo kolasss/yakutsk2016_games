@@ -48,3 +48,7 @@ group :development do
   gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-bundler', '~> 1.1.2'
 end
+
+group :production do
+  gem 'rack-cors', :require => 'rack/cors'
+end
