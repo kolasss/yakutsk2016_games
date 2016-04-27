@@ -23,6 +23,8 @@ class Team < ActiveRecord::Base
   has_many :athletes, through: :team_memberships
   has_many :contests, through: :participations
 
+  accepts_nested_attributes_for :team_memberships, allow_destroy: true
+
   # before_validation :set_name
 
   validates :country, presence: true

@@ -7,12 +7,15 @@ class Api::V1::TeamsController < Api::ApiController
   end
 
   def show
+    # @athletes = @team.athletes
+    data_for_show
   end
 
   def create
     @team = @country.teams.new(team_params)
 
     if @team.save
+      data_for_show
       render :show, status: :created
     else
       render json: {errors: @team.errors}, status: :unprocessable_entity
@@ -23,6 +26,7 @@ class Api::V1::TeamsController < Api::ApiController
     @team = Team.find(params[:id])
 
     if @team.update(team_params)
+      data_for_show
       render :show, status: :ok
     else
       render json: {errors: @team.errors}, status: :unprocessable_entity
@@ -51,7 +55,16 @@ class Api::V1::TeamsController < Api::ApiController
       params.require(:team).permit(
         {name: AVAILABLE_LOCALES},
         :discipline_id,
-        :rank
+        :rank,
+        team_memberships_attributes: [
+          :id,
+          :athlete_id,
+          :_destroy
+        ]
       )
+    end
+
+    def data_for_show
+      @team_memberships = @team.team_memberships
     end
 end
