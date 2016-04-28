@@ -7,7 +7,7 @@ json.country_ids @sport.country_ids
 # json.team_ids @sport.team_ids
 # json.countries @sport.countries
 
-json.contests @published_contests,
+json.published_contests @published_contests,
               partial: 'api/v1/contests/contest',
               as: :contest
 

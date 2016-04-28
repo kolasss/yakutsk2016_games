@@ -1,7 +1,7 @@
 json.country @country, partial: 'api/v1/countries/country', as: :country
 json.sport @sport, partial: 'api/v1/sports/sport', as: :sport
 
-json.contests @published_contests,
+json.published_contests @published_contests,
               partial: 'api/v1/contests/contest',
               as: :contest
 

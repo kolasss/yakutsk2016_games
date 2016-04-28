@@ -31,4 +31,8 @@ class Contest < ActiveRecord::Base
             json: JSON_VALIDATION
 
   scope :published, -> { where.not(published_at: nil).order(published_at: :desc) }
+
+  def published?
+    self.published_at.present?
+  end
 end
