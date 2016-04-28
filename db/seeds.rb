@@ -141,8 +141,9 @@ p "sports created"
 
     athletes_offset = rand(country.athletes.count)
     country_athletes = country.athletes.offset(athletes_offset).limit(10)
+    disciplines = sport.disciplines.sample(rand(2..5))
 
-    sport.disciplines.each do |discipline|
+    disciplines.each do |discipline|
       team_size = [1, 2, 5].sample
       team_name = team_size == 1 ? nil : { ru: "Команда #{i}", en: "Team #{i}" }
       rank = rand(1..5)
