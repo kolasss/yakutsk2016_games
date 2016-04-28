@@ -21,7 +21,8 @@ class TeamMembership < ActiveRecord::Base
   private
 
     def athlete_and_team_countries_equals
-      if self.team && self.athlete && self.team.country != self.athlete.country
+      if self.team && self.athlete &&
+         self.team.country != self.athlete.country
         errors.add(:athlete_id, "страна не соотвествует")
       end
     end

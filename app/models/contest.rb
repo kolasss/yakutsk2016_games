@@ -23,6 +23,8 @@ class Contest < ActiveRecord::Base
 
   has_many :participations, dependent: :destroy
 
+  accepts_nested_attributes_for :participations, allow_destroy: true
+
   validates :discipline, presence: true
   validates :name,
             allow_blank: true,

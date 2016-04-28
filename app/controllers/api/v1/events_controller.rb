@@ -1,9 +1,7 @@
 class Api::V1::EventsController < Api::ApiController
-  # before_action :set_location, only: [:index, :create]
   before_action :set_event, only: [:show, :update, :destroy]
 
   def index
-    # @events = @location.events
     @events = Event.all
     if params[:date].present?
       date = Date.parse params[:date]
@@ -15,15 +13,15 @@ class Api::V1::EventsController < Api::ApiController
   def show
   end
 
-  # def create
-  #   @event = @location.events.new(event_params)
+  def create
+    @event = Event.new(event_params)
 
-  #   if @event.save
-  #     render :show, status: :created
-  #   else
-  #     render json: {errors: @event.errors}, status: :unprocessable_entity
-  #   end
-  # end
+    if @event.save
+      render :show, status: :created
+    else
+      render json: {errors: @event.errors}, status: :unprocessable_entity
+    end
+  end
 
   def update
     @event = Event.find(params[:id])
@@ -49,16 +47,13 @@ class Api::V1::EventsController < Api::ApiController
       @event = Event.find(params[:id])
     end
 
-    # def set_location
-    #   @location = Location.find(params[:location_id])
-    # end
-
     def event_params
       params.require(:event).permit(
         :start_date,
         :end_date,
         {info: AVAILABLE_LOCALES},
-        :sport_id
+        :sport_id,
+        :location_id
       )
     end
 end

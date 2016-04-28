@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20160420084450) do
     t.date     "end_date",                 null: false
     t.jsonb    "info",        default: {}
     t.integer  "location_id",              null: false
-    t.integer  "sport_id",                 null: false
+    t.integer  "sport_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

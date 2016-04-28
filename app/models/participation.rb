@@ -30,7 +30,8 @@ class Participation < ActiveRecord::Base
   private
 
     def contest_and_team_discipline_equals
-      if self.team.discipline != self.contest.discipline
+      if self.team && self.contest &&
+         self.team.discipline != self.contest.discipline
         errors.add(:team_id, "дисциплина не соотвествует")
       end
     end

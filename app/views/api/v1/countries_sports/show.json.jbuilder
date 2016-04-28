@@ -6,14 +6,18 @@ json.contests @published_contests,
               as: :contest
 
 json.disciplines @disciplines do |discipline|
-  # json.partial! 'api/v1/disciplines/discipline', discipline: discipline
-  json.merge! discipline.attributes
+  json.partial! 'api/v1/disciplines/discipline', discipline: discipline
+
+  json.contests discipline.contests,
+              partial: 'api/v1/contests/contest',
+              as: :contest
 
   json.athletes discipline.athletes.where(athletes: {country_id: @country}),
               partial: 'api/v1/athletes/athlete',
               as: :athlete
 end
 
+# TODO это надо или через дисциплины показывать?
 json.athletes @athletes,
               partial: 'api/v1/athletes/athlete',
               as: :athlete

@@ -48,7 +48,9 @@ class Api::V1::SportsController < Api::ApiController
       params.require(:sport).permit(
         {name: AVAILABLE_LOCALES},
         {info: AVAILABLE_LOCALES},
-        :icon
+        :icon,
+        :location_id,
+        :format
       )
     end
 end

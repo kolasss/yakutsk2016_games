@@ -27,12 +27,14 @@ Rails.application.routes.draw do
       resources :sports, except: [:new, :edit] do
         resources :disciplines, only: [:index, :create]
       end
-      resources :disciplines, only: [:show, :update, :destroy]
-
-      resources :locations, except: [:new, :edit] do
-        # resources :events, only: [:index, :create]
+      resources :disciplines, only: [:show, :update, :destroy] do
+        resources :teams, only: [:index], controller: 'disciplines_teams'
+        resources :contests, only: [:index, :create]
       end
-      resources :events, only: [:index, :show, :update, :destroy]
+      resources :contests, only: [:show, :update, :destroy]
+
+      resources :locations, except: [:new, :edit]
+      resources :events, except: [:new, :edit]
     end
   end
 end

@@ -11,6 +11,14 @@ json.contests @published_contests,
               partial: 'api/v1/contests/contest',
               as: :contest
 
-json.disciplines @disciplines,
-                 partial: 'api/v1/disciplines/discipline',
-                 as: :discipline
+# json.disciplines @disciplines,
+#                  partial: 'api/v1/disciplines/discipline',
+#                  as: :discipline
+
+json.disciplines @disciplines do |discipline|
+  json.partial! 'api/v1/disciplines/discipline', discipline: discipline
+
+  json.contests discipline.contests,
+              partial: 'api/v1/contests/contest',
+              as: :contest
+end

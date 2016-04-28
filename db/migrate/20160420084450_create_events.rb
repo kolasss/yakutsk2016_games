@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration
       t.jsonb :info, default: '{}'
 
       t.references :location, index: true, foreign_key: true, null: false
-      t.references :sport, index: true, foreign_key: true, null: false
+      t.references :sport, index: true, foreign_key: true
 
       t.timestamps null: false
     end
