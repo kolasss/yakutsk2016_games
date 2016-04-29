@@ -3,7 +3,7 @@ class Api::V1::TeamsController < Api::ApiController
   before_action :set_team, only: [:show, :update, :destroy]
 
   def index
-    @teams = @country.teams.page(params[:page])
+    @teams = @country.teams
   end
 
   def show

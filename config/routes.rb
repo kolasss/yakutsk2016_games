@@ -31,7 +31,12 @@ Rails.application.routes.draw do
         resources :teams, only: [:index], controller: 'disciplines_teams'
         resources :contests, only: [:index, :create]
       end
-      resources :contests, only: [:show, :update, :destroy]
+      resources :contests, only: [:show, :update, :destroy] do
+        member do
+          put :append_child
+          put :prepend_child
+        end
+      end
 
       resources :locations, except: [:new, :edit]
       resources :events, except: [:new, :edit]

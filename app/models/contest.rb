@@ -30,9 +30,20 @@ class Contest < ActiveRecord::Base
             allow_blank: true,
             json: JSON_VALIDATION
 
+  validate :parent_discipline_equals
+
   scope :published, -> { where.not(published_at: nil).order(published_at: :desc) }
 
   def published?
     self.published_at.present?
   end
+
+  private
+
+    def parent_discipline_equals
+      if self.parent && self.discipline &&
+         self.parent.discipline != self.discipline
+        errors.add(:parent_id, "дисциплина не соотвествует")
+      end
+    end
 end
