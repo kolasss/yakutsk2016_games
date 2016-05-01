@@ -1,3 +1,5 @@
+user = User.create email: "user", password: "123"
+
 country = Country.create name: { ru: 'Россия', en: 'Russia' }
 
 location = Location.create name: { ru: 'Стадион Туймаада', en: 'Tuimaada Stadium' }

@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
 
   # before_action :require_login
 
-  private
+  # private
 
-    def not_authenticated
-      head :unauthorized
-      # redirect_to users_login_path, alert: "Войдите в систему!"
-    end
+  #   def not_authenticated
+  #     head :unauthorized
+  #     # redirect_to users_login_path, alert: "Войдите в систему!"
+  #   end
 end

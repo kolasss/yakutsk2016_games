@@ -13,6 +13,8 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  has_many :authentications, dependent: :destroy
+
   PASSWORD_LENGTH = 3..100
 
   validates :password, presence: true,

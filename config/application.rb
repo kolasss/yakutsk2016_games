@@ -28,5 +28,7 @@ module Yakutsk2016Sport
 
     settings = YAML.load_file(Rails.root.join('config/settings.yml'))[Rails.env]
     settings.each { |key, value| config.send("#{key}=", value) }
+
+    config.autoload_paths += Dir[Rails.root.join('lib')]
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420084450) do
+ActiveRecord::Schema.define(version: 20160501050744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20160420084450) do
   end
 
   add_index "athletes", ["country_id"], name: "index_athletes_on_country_id", using: :btree
+
+  create_table "authentications", force: :cascade do |t|
+    t.jsonb    "info"
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
 
   create_table "contest_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id",   null: false
@@ -140,19 +149,17 @@ ActiveRecord::Schema.define(version: 20160420084450) do
   add_index "teams", ["discipline_id"], name: "index_teams_on_discipline_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                        null: false
+    t.string   "email",            null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "remember_me_token"
-    t.datetime "remember_me_token_expires_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
 
   add_foreign_key "athletes", "countries"
+  add_foreign_key "authentications", "users"
   add_foreign_key "contests", "contests", column: "parent_id"
   add_foreign_key "contests", "disciplines"
   add_foreign_key "disciplines", "sports"

@@ -25,11 +25,12 @@ gem 'activerecord_json_validator'
 
 gem "sorcery"
 # gem "pundit" #authorization
+gem 'jwt'
 
 
 ## ========Убрать???
 gem 'rails-i18n', '~> 4.0.0' # For 4.0.x localizations
-gem 'simple_form' # form generator
+# gem 'simple_form' # form generator
 gem 'bootstrap-sass'
 gem 'rails_admin' # TODO удалять или нет?
 ## ========Убрать???

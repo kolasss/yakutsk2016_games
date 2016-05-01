@@ -4,16 +4,6 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  # регистрация и работа со своим аккаунтом
-  namespace :users do
-    get  'registration' => 'registrations#new', as: :registration
-    post 'registration' => 'registrations#create'
-
-    get  'login'  => 'sessions#new',     :as => :login
-    post 'login'  => 'sessions#create'
-    get  'logout' => 'sessions#destroy', :as => :logout
-  end
-
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :countries, except: [:new, :edit] do
@@ -40,6 +30,13 @@ Rails.application.routes.draw do
 
       resources :locations, except: [:new, :edit]
       resources :events, except: [:new, :edit]
+
+      resources :users, except: [:new, :edit] do
+        collection do
+          post :signin
+          delete :signout
+        end
+      end
     end
   end
 end
