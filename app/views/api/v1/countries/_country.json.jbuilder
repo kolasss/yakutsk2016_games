@@ -1,3 +1,3 @@
-json.merge! country.attributes
+json.merge! country.as_json
 
-json.flag_url country.flag.url
+# json.flag_url country.flag.url

@@ -1,1 +1,1 @@
-json.merge! location.attributes
+json.merge! location.as_json

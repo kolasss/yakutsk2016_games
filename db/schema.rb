@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20160501050744) do
     t.jsonb    "name",       default: {}, null: false
     t.jsonb    "address",    default: {}
     t.jsonb    "info",       default: {}
+    t.string   "photo"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
@@ -117,6 +118,8 @@ ActiveRecord::Schema.define(version: 20160501050744) do
   create_table "sports", force: :cascade do |t|
     t.jsonb    "name",        default: {}, null: false
     t.string   "icon"
+    t.string   "photo_small"
+    t.string   "photo"
     t.jsonb    "info",        default: {}
     t.integer  "format",      default: 0,  null: false
     t.integer  "location_id",              null: false

@@ -1,1 +1,1 @@
-json.merge! participation.attributes
+json.merge! participation.as_json

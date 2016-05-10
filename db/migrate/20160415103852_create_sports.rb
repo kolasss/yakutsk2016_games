@@ -3,6 +3,8 @@ class CreateSports < ActiveRecord::Migration
     create_table :sports do |t|
       t.jsonb :name, null: false, default: '{}'
       t.string :icon
+      t.string :photo_small
+      t.string :photo
       t.jsonb :info, default: '{}'
       t.integer :format, default: 0, null: false
 

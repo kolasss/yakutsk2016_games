@@ -1,1 +1,1 @@
-json.merge! team.attributes
+json.merge! team.as_json

@@ -1,1 +1,1 @@
-json.merge! event.attributes
+json.merge! event.as_json

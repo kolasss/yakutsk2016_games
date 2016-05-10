@@ -24,7 +24,7 @@ class Country < ActiveRecord::Base
   has_many :contests, -> { distinct }, through: :teams
   has_many :events, -> { distinct }, through: :sports
 
-  mount_uploader :flag, FileUploader
+  mount_uploader :flag, ImageUploader
 
   validates :name,
             presence: true,

@@ -4,6 +4,7 @@ class CreateLocations < ActiveRecord::Migration
       t.jsonb :name, null: false, default: '{}'
       t.jsonb :address, default: '{}'
       t.jsonb :info, default: '{}'
+      t.string :photo
 
       t.timestamps null: false
     end

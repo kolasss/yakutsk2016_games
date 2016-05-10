@@ -1,3 +1,3 @@
-json.merge! athlete.attributes
+json.merge! athlete.as_json
 
-json.photo_url athlete.photo.url
+# json.photo_url athlete.photo.url

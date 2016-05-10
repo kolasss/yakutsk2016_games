@@ -5,6 +5,8 @@
 #  id          :integer          not null, primary key
 #  name        :jsonb            not null
 #  icon        :string
+#  photo_small :string
+#  photo       :string
 #  info        :jsonb
 #  format      :integer          default(0), not null
 #  location_id :integer          not null

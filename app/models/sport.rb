@@ -5,6 +5,8 @@
 #  id          :integer          not null, primary key
 #  name        :jsonb            not null
 #  icon        :string
+#  photo_small :string
+#  photo       :string
 #  info        :jsonb
 #  format      :integer          default(0), not null
 #  location_id :integer          not null
@@ -25,7 +27,9 @@ class Sport < ActiveRecord::Base
   has_many :contests, through: :disciplines
   # has_many :athletes, through: :disciplines
 
-  mount_uploader :icon, FileUploader
+  mount_uploader :icon, ImageUploader
+  mount_uploader :photo, ImageUploader
+  mount_uploader :photo_small, ImageUploader
 
   enum format: {
     grid: 0,

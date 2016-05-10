@@ -1,1 +1,1 @@
-json.merge! discipline.attributes
+json.merge! discipline.as_json

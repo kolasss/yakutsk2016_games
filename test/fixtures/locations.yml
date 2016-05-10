@@ -6,6 +6,7 @@
 #  name       :jsonb            not null
 #  address    :jsonb
 #  info       :jsonb
+#  photo      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

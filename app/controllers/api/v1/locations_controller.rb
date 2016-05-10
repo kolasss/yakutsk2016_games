@@ -47,7 +47,8 @@ class Api::V1::LocationsController < Api::ApiController
       params.require(:location).permit(
         {name: AVAILABLE_LOCALES},
         {address: AVAILABLE_LOCALES},
-        {info: AVAILABLE_LOCALES}
+        {info: AVAILABLE_LOCALES},
+        :photo
       )
     end
 end
