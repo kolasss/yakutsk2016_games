@@ -1,4 +1,4 @@
-class Api::V1::SportsController < Api::ApiController
+class Api::V1::SportsController < ApplicationController
   before_action :set_sport, only: [:show, :update, :destroy]
 
   def index

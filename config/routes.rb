@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
   root to: 'home#index'
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
+
       resources :countries, except: [:new, :edit] do
         resources :athletes, only: [:index, :create]
         resources :teams, only: [:index, :create]
@@ -37,6 +36,7 @@ Rails.application.routes.draw do
           delete :signout
         end
       end
+
     end
   end
 end

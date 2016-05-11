@@ -1,4 +1,4 @@
-class Api::V1::DisciplinesController < Api::ApiController
+class Api::V1::DisciplinesController < ApplicationController
   before_action :set_sport, only: [:index, :create]
   before_action :set_discipline, only: [:show, :update, :destroy]
 

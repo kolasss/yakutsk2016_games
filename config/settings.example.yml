@@ -1,5 +1,5 @@
 default: &default
-  mailer_sender: 'no-reply@goszakazyakutia.ru'
+  # mailer_sender: 'no-reply@goszakazyakutia.ru'
 
 development:
   <<: *default

@@ -1,4 +1,4 @@
-class Api::V1::LocationsController < Api::ApiController
+class Api::V1::LocationsController < ApplicationController
   before_action :set_location, only: [:show, :update, :destroy]
 
   def index

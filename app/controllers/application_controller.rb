@@ -1,14 +1,14 @@
-class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+class ApplicationController < ActionController::API
+  include Sorcery::Controller
 
-  # before_action :require_login
+  AVAILABLE_LOCALES ||= Rails.configuration.i18n.available_locales
 
-  # private
+  before_action :require_login, except: [:index, :show]
 
-  #   def not_authenticated
-  #     head :unauthorized
-  #     # redirect_to users_login_path, alert: "Войдите в систему!"
-  #   end
+  private
+
+    def not_authenticated
+      head :unauthorized
+      # redirect_to users_login_path, alert: "Войдите в систему!"
+    end
 end

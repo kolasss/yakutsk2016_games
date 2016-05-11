@@ -1,4 +1,4 @@
-class Api::V1::DisciplinesTeamsController < Api::ApiController
+class Api::V1::DisciplinesTeamsController < ApplicationController
 
   def index
     @discipline = Discipline.find(params[:discipline_id])

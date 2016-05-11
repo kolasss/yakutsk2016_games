@@ -1,4 +1,4 @@
-class Api::V1::ContestsController < Api::ApiController
+class Api::V1::ContestsController < ApplicationController
   before_action :set_discipline, only: [:index, :create]
   before_action :set_contest, only: [:show, :update, :destroy, :append_child, :prepend_child]
 

@@ -1,4 +1,4 @@
-class Api::V1::CountriesSportsController < Api::ApiController
+class Api::V1::CountriesSportsController < ApplicationController
 
   def show
     @country = Country.find(params[:country_id])

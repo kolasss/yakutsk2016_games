@@ -1,4 +1,4 @@
-class Api::V1::AthletesController < Api::ApiController
+class Api::V1::AthletesController < ApplicationController
   before_action :set_country, only: [:index, :create]
   before_action :set_athlete, only: [:show, :update, :destroy]
 

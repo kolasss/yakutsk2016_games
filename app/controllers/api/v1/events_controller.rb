@@ -1,4 +1,4 @@
-class Api::V1::EventsController < Api::ApiController
+class Api::V1::EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
 
   def index

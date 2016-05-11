@@ -1,17 +1,14 @@
 source 'https://rubygems.org'
 
+
 gem 'rails', '4.2.6'
+gem 'rails-api'
+
 gem 'pg'
 gem 'pg_search' #PostgreSQL's full text search.
 gem 'annotate' # ruby model annotations
 
-gem "slim-rails"
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
-gem "autoprefixer-rails"
 
 # File upload
 gem 'carrierwave'
@@ -26,15 +23,6 @@ gem 'activerecord_json_validator'
 gem "sorcery"
 # gem "pundit" #authorization
 gem 'jwt'
-
-
-## ========Убрать???
-gem 'rails-i18n', '~> 4.0.0' # For 4.0.x localizations
-# gem 'simple_form' # form generator
-gem 'bootstrap-sass'
-gem 'rails_admin' # TODO удалять или нет?
-## ========Убрать???
-
 
 group :development, :test do
   gem 'byebug'

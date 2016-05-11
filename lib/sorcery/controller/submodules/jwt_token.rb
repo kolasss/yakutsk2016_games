@@ -15,6 +15,10 @@ module Sorcery
 
           protected
 
+            def current_auth_by_token
+              current_user.authentications.find decoded_auth_token[:auth_id]
+            end
+
             def login_from_jwt_token
               return false unless auth_id_included_in_auth_token?
               @current_user = user_class.find_by_auth_id(decoded_auth_token[:auth_id])

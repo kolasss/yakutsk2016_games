@@ -1,4 +1,4 @@
-class Api::V1::UsersController < Api::ApiController
+class Api::V1::UsersController < ApplicationController
   skip_before_action :require_login, only: [:signin]
   before_action :set_user, only: [:show, :update, :destroy]
 
@@ -36,7 +36,9 @@ class Api::V1::UsersController < Api::ApiController
   end
 
   def signin
-    if @user = login(user_params[:email], user_params[:password])
+    @user = User.find_by email: user_params[:email]
+
+    if @user && @user.valid_password?(user_params[:password])
       # generate token
       info = {user_agent: request.user_agent}
       auth = @user.authentications.create info: info
@@ -48,24 +50,10 @@ class Api::V1::UsersController < Api::ApiController
   end
 
   def signout
-    logout
+    auth = current_auth_by_token
+    auth.destroy
     head :no_content
   end
-
-  # DELETE /auth/tokens
-  # def destroy_token
-  #   if params[:token] == 'current'
-  #     @auth = current_auth_by_token
-  #     @auth.destroy
-  #     head :no_content
-  #   elsif params[:token] == 'other'
-  #     @auths = current_user.authentications.where.not(id: current_auth_by_token.id)
-  #     @auths.destroy_all
-  #     head :no_content
-  #   else
-  #     render json: {errors: ['Invalid parameter']}, status: :unprocessable_entity
-  #   end
-  # end
 
   private
 

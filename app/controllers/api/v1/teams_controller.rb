@@ -1,4 +1,4 @@
-class Api::V1::TeamsController < Api::ApiController
+class Api::V1::TeamsController < ApplicationController
   before_action :set_country, only: [:index, :create]
   before_action :set_team, only: [:show, :update, :destroy]
 
