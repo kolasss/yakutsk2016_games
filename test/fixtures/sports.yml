@@ -16,10 +16,14 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  icon: MyString
+legkaya:
+  name:
+    ru: Легкая атлетика
+    en: Legkaya atletika
+  location: one
 
-two:
-  name: MyString
-  icon: MyString
+tennis:
+  name:
+    ru: Настольный теннис
+    en: Pinpong
+  location: two

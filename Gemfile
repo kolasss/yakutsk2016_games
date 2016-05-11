@@ -30,6 +30,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'guard' # auto testing
+  gem 'guard-minitest'
+
   # ruby deployment system
   gem "capistrano", "~> 3.4"
   gem 'capistrano-rails', '~> 1.1'
@@ -40,4 +43,10 @@ end
 
 group :production do
   gem 'rack-cors', :require => 'rack/cors'
+end
+
+group :test do
+  gem 'minitest-reporters' # for better test reports in console
+  # gem 'simplecov', :require => false # reports about coverage
+  # gem 'webmock' #mocking web requests
 end

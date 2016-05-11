@@ -16,9 +16,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  flag: MyString
+  name:
+    ru: Русский
+    en: English
 
 two:
-  name: MyString
-  flag: MyString
+  name:
+    ru: Русский
+    en: English

@@ -14,9 +14,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  info: MyText
+  name:
+    ru: Русский
+    en: English
+  info:
+    ru: Русский
+    en: English
+  country: one
 
 two:
-  name: MyString
-  info: MyText
+  name:
+    ru: Русский
+    en: English
+  info:
+    ru: Русский
+    en: English
+  country: two

@@ -17,11 +17,15 @@
 one:
   start_date: 2016-04-20
   end_date: 2016-04-20
-  name: MyString
-  info: MyText
+  info:
+    ru: Русский
+    en: English
+  location: one
 
 two:
   start_date: 2016-04-20
   end_date: 2016-04-20
-  name: MyString
-  info: MyText
+  info:
+    ru: Русский
+    en: English
+  location: one

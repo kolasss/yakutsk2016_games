@@ -15,6 +15,10 @@
 
 one:
   score: MyString
+  team: one
+  contest: one
 
 two:
   score: MyString
+  team: one
+  contest: two

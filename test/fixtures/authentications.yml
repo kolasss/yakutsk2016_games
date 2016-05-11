@@ -12,7 +12,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  info: 
+  user: one
 
 two:
-  info: 
+  user: two

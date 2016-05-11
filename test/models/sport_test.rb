@@ -17,7 +17,20 @@
 require 'test_helper'
 
 class SportTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  def setup
+    @sport = Sport.new(
+      name: {ru: 'Бокс', en: 'Box'},
+      location: locations(:one)
+    )
+  end
+
+  test "should be valid" do
+    assert @sport.valid?
+  end
+
+  test "name should be present" do
+    @sport.name = nil
+    assert_not @sport.valid?
+  end
 end
