@@ -25,3 +25,10 @@ prijki:
     en: English
   finished: false
   sport: legkaya
+
+otjimaniya:
+  name:
+    ru: Русский
+    en: English
+  finished: true
+  sport: legkaya

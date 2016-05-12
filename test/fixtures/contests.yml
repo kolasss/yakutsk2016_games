@@ -30,3 +30,31 @@ two:
   start_at: 2016-04-15 19:52:37
   published_at: 2016-04-15 19:52:37
   discipline: beg
+
+tree1:
+  name:
+    ru: Русский
+    en: English
+  start_at: 2016-04-15 19:52:37
+  published_at: 2016-04-15 19:52:37
+  discipline: prijki
+
+tree2:
+  name:
+    ru: Русский
+    en: English
+  start_at: 2016-04-15 19:52:37
+  published_at: 2016-04-15 19:52:37
+  discipline: prijki
+  parent: tree1
+  sort_order: 1
+
+tree3:
+  name:
+    ru: Русский
+    en: English
+  start_at: 2016-04-15 19:52:37
+  published_at: 2016-04-15 19:52:37
+  discipline: prijki
+  parent: tree1
+  sort_order: 2

@@ -18,7 +18,9 @@ class Team < ActiveRecord::Base
   belongs_to :discipline
 
   has_many :participations, dependent: :destroy
-  has_many :team_memberships, dependent: :destroy
+  has_many :team_memberships,
+    dependent: :destroy,
+    inverse_of: :team
 
   has_many :athletes, through: :team_memberships
   has_many :contests, through: :participations

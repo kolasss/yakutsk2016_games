@@ -15,16 +15,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  start_date: 2016-04-20
+  start_date: 2016-04-19
   end_date: 2016-04-20
   info:
     ru: Русский
     en: English
-  location: one
+  location: wo_sport
 
 sport_one:
-  start_date: 2016-04-20
-  end_date: 2016-04-20
+  start_date: 2016-04-21
+  end_date: 2016-04-26
   info:
     ru: Русский
     en: English
@@ -33,7 +33,7 @@ sport_one:
 
 sport_two:
   start_date: 2016-04-20
-  end_date: 2016-04-20
+  end_date: 2016-04-24
   info:
     ru: Русский
     en: English

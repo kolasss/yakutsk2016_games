@@ -68,6 +68,9 @@ class SportTest < ActiveSupport::TestCase
     @sport.info = {test: "123"}
     assert_not @sport.valid?
 
+    @sport.info = nil
+    assert @sport.valid?
+
     @sport.info = {ru: "тест", en: "test"}
     assert @sport.valid?
   end
@@ -79,7 +82,7 @@ class SportTest < ActiveSupport::TestCase
 
   test 'should destroy disciplines with sport' do
     sport = sports(:legkaya)
-    assert_difference('Discipline.count', -2) do
+    assert_difference('Discipline.count', -3) do
       sport.destroy
     end
   end

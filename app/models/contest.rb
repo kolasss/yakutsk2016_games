@@ -21,7 +21,9 @@ class Contest < ActiveRecord::Base
 
   belongs_to :discipline
 
-  has_many :participations, dependent: :destroy
+  has_many :participations,
+    dependent: :destroy,
+    inverse_of: :contest
 
   accepts_nested_attributes_for :participations, allow_destroy: true
 

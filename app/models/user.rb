@@ -17,15 +17,19 @@ class User < ActiveRecord::Base
 
   PASSWORD_LENGTH = 3..100
 
-  validates :password, presence: true,
+  validates :password,
     length: {in: PASSWORD_LENGTH },
     confirmation: true,
-    on: :create
-
-  validates :password, allow_blank: true,
-    length: {in: PASSWORD_LENGTH },
-    confirmation: true,
-    on: :update
+    if: :need_password_validation?
+  validates :password_confirmation,
+    presence: true,
+    if: :need_password_validation?
 
   validates :email, uniqueness: true, presence: true
+
+  private
+
+    def need_password_validation?
+      new_record? || changes[:crypted_password]
+    end
 end

@@ -19,6 +19,21 @@ one:
   country: one
 
 two:
-  rank: 1
+  rank: 2
   discipline: prijki
   country: two
+
+with_finished_discipline1:
+  rank: 1
+  discipline: otjimaniya
+  country: one
+
+with_finished_discipline2:
+  rank: 2
+  discipline: otjimaniya
+  country: one
+
+with_finished_discipline3:
+  rank: 3
+  discipline: otjimaniya
+  country: one
