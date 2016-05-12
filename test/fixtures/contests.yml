@@ -21,7 +21,7 @@ one:
     en: English
   start_at: 2016-04-15 19:52:37
   published_at: 2016-04-15 19:52:37
-  discipline: one
+  discipline: beg
 
 two:
   name:
@@ -29,4 +29,4 @@ two:
     en: English
   start_at: 2016-04-15 19:52:37
   published_at: 2016-04-15 19:52:37
-  discipline: one
+  discipline: beg

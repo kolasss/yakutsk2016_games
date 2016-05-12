@@ -14,11 +14,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  score: MyString
+  score: "1.5"
   team: one
   contest: one
 
 two:
-  score: MyString
   team: one
   contest: two

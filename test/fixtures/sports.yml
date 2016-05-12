@@ -21,6 +21,9 @@ legkaya:
     ru: Легкая атлетика
     en: Legkaya atletika
   location: one
+  icon: photo1.jpg
+  photo: photo2.jpg
+  photo_small: photo3.jpg
 
 tennis:
   name:

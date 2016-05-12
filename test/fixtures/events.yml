@@ -22,10 +22,20 @@ one:
     en: English
   location: one
 
-two:
+sport_one:
   start_date: 2016-04-20
   end_date: 2016-04-20
   info:
     ru: Русский
     en: English
   location: one
+  sport: legkaya
+
+sport_two:
+  start_date: 2016-04-20
+  end_date: 2016-04-20
+  info:
+    ru: Русский
+    en: English
+  location: one
+  sport: legkaya

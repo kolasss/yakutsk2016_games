@@ -12,14 +12,14 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+beg:
   name:
     ru: Русский
     en: English
   finished: false
   sport: legkaya
 
-two:
+prijki:
   name:
     ru: Русский
     en: English

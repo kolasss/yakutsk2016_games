@@ -15,10 +15,10 @@
 
 one:
   rank: 1
-  discipline: one
+  discipline: beg
   country: one
 
 two:
   rank: 1
-  discipline: two
-  country: one
+  discipline: prijki
+  country: two
