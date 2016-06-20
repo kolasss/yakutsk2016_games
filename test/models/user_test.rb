@@ -63,6 +63,22 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test 'password can be blank for update' do
+    user = users(:one)
+    user.email = "супер поставщик"
+    assert_nil user.password
+    assert_nil user.password_confirmation
+    assert user.valid?
+  end
+
+  test 'password_confirmation should be equal to password for update' do
+    user = users(:one)
+    user.password = "secret"
+    assert_not user.valid?
+    user.password_confirmation = "secret"
+    assert user.valid?
+  end
+
   test "can have authentications" do
     user = users(:one)
     assert user.authentications.any?

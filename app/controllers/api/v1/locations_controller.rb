@@ -48,7 +48,8 @@ class Api::V1::LocationsController < ApplicationController
         {name: AVAILABLE_LOCALES},
         {address: AVAILABLE_LOCALES},
         {info: AVAILABLE_LOCALES},
-        :photo
+        :photo,
+        :sport
       )
     end
 end

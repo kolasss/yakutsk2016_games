@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501050744) do
+ActiveRecord::Schema.define(version: 20160620045024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,12 +94,13 @@ ActiveRecord::Schema.define(version: 20160501050744) do
   add_index "events", ["sport_id"], name: "index_events_on_sport_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
-    t.jsonb    "name",       default: {}, null: false
+    t.jsonb    "name",       default: {},    null: false
     t.jsonb    "address",    default: {}
     t.jsonb    "info",       default: {}
     t.string   "photo"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "sport",      default: false, null: false
   end
 
   create_table "participations", force: :cascade do |t|

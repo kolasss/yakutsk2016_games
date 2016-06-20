@@ -9,6 +9,7 @@
 #  photo      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  sport      :boolean          default(FALSE), not null
 #
 
 class Location < ActiveRecord::Base
@@ -28,4 +29,5 @@ class Location < ActiveRecord::Base
   validates :info,
             allow_blank: true,
             json: JSON_VALIDATION
+  validates :sport, inclusion: { in: [true, false] }
 end
