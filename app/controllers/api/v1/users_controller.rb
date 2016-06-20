@@ -4,9 +4,11 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @users = User.all
+    render
   end
 
   def show
+    render
   end
 
   def create
@@ -44,6 +46,7 @@ class Api::V1::UsersController < ApplicationController
       auth = @user.authentications.create info: info
       # render token
       @auth_token = encode_auth_token auth
+      render
     else
       render json: {errors: ['Неверные email или пароль']}, status: :unauthorized
     end

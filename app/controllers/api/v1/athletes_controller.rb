@@ -4,10 +4,12 @@ class Api::V1::AthletesController < ApplicationController
 
   def index
     @athletes = @country.athletes.page(params[:page])
+    render
   end
 
   def show
     @published_contests = @athlete.contests.published.includes(:participations)
+    render
   end
 
   def create

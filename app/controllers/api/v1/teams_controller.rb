@@ -4,11 +4,13 @@ class Api::V1::TeamsController < ApplicationController
 
   def index
     @teams = @country.teams
+    render
   end
 
   def show
     # @athletes = @team.athletes
     data_for_show
+    render
   end
 
   def create

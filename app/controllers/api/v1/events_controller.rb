@@ -7,10 +7,12 @@ class Api::V1::EventsController < ApplicationController
       date = Date.parse params[:date]
       @events = @events.actual_for date
     end
+    render
   end
 
   # TODO убрать??
   def show
+    render
   end
 
   def create

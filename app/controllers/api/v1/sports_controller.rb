@@ -3,11 +3,13 @@ class Api::V1::SportsController < ApplicationController
 
   def index
     @sports = Sport.all
+    render
   end
 
   def show
     @published_contests = @sport.contests.published.includes(:participations)
     @disciplines = @sport.disciplines.includes(contests: [:participations])
+    render
   end
 
   def create

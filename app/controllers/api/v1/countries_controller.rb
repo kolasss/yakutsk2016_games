@@ -3,6 +3,7 @@ class Api::V1::CountriesController < ApplicationController
 
   def index
     @countries = Country.all
+    render
   end
 
   def show
@@ -12,6 +13,7 @@ class Api::V1::CountriesController < ApplicationController
       date = Date.parse params[:date]
       @events = @events.actual_for date
     end
+    render
   end
 
   def create

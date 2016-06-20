@@ -4,9 +4,11 @@ class Api::V1::ContestsController < ApplicationController
 
   def index
     @contests = @discipline.contests
+    render
   end
 
   def show
+    render
   end
 
   def create

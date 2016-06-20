@@ -3,10 +3,12 @@ class Api::V1::LocationsController < ApplicationController
 
   def index
     @locations = Location.all
+    render
   end
 
   def show
     @events = @location.events
+    render
   end
 
   def create

@@ -4,9 +4,11 @@ class Api::V1::DisciplinesController < ApplicationController
 
   def index
     @disciplines = @sport.disciplines
+    render
   end
 
   def show
+    render
   end
 
   def create

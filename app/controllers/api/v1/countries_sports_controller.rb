@@ -12,5 +12,6 @@ class Api::V1::CountriesSportsController < ApplicationController
 
     @athletes = @country.athletes
         .joins(:disciplines).merge(@sport.disciplines)
+    render
   end
 end
