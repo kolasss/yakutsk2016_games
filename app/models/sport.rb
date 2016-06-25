@@ -34,7 +34,8 @@ class Sport < ActiveRecord::Base
   enum format: {
     grid: 0,
     circular: 10,
-    simple: 20
+    simple: 20,
+    football: 30
   }
 
   validates :location, presence: true

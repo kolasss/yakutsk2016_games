@@ -82,6 +82,8 @@ class Api::V1::ContestsController < ApplicationController
         :start_at,
         :published_at,
         :parent_id,
+        :in_group,
+        :group_id,
         participations_attributes: [
           :id,
           :score,

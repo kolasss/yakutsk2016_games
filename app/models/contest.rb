@@ -11,6 +11,8 @@
 #  discipline_id :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  in_group      :boolean          default(FALSE)
+#  group_id      :integer
 #
 
 class Contest < ActiveRecord::Base
@@ -31,6 +33,7 @@ class Contest < ActiveRecord::Base
   validates :name,
             allow_blank: true,
             json: JSON_VALIDATION
+  validates :in_group, inclusion: { in: [true, false] }
 
   validate :parent_discipline_equals
 

@@ -11,6 +11,8 @@
 #  discipline_id :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  in_group      :boolean          default(FALSE)
+#  group_id      :integer
 #
 
 require 'test_helper'

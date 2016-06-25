@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620045024) do
+ActiveRecord::Schema.define(version: 20160625061449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,9 +51,11 @@ ActiveRecord::Schema.define(version: 20160620045024) do
     t.datetime "published_at"
     t.integer  "parent_id"
     t.integer  "sort_order"
-    t.integer  "discipline_id",              null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "discipline_id",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "in_group",      default: false
+    t.integer  "group_id"
   end
 
   add_index "contests", ["discipline_id"], name: "index_contests_on_discipline_id", using: :btree
