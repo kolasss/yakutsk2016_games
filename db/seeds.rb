@@ -1,4 +1,4 @@
-user = User.create email: "user", password: "123"
+user = User.create email: "user", password: "123", password_confirmation: "123"
 
 country = Country.create name: { ru: 'Россия', en: 'Russia' }
 
