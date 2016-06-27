@@ -9,7 +9,7 @@
 #  photo      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  sport      :boolean          default(FALSE), not null
+#  for_sport  :boolean          default(FALSE), not null
 #
 
 require 'test_helper'
