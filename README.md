@@ -12,6 +12,7 @@
 ## Настроика сервера для деплоя
 
 - установить rbenv
+- Для загрузки и обработки изображений нужен imagemagick: sudo apt-get install imagemagick libmagickcore-dev
 - postgresql
 - nginx + passenger
 - capistrano deploy

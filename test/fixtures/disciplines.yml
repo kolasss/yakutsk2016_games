@@ -8,6 +8,7 @@
 #  sport_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  unit       :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
