@@ -3,8 +3,8 @@
 # Table name: events
 #
 #  id          :integer          not null, primary key
-#  start_date  :date             not null
-#  end_date    :date             not null
+#  start_date  :datetime         not null
+#  end_date    :datetime         not null
 #  info        :jsonb
 #  location_id :integer          not null
 #  sport_id    :integer
