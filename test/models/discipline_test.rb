@@ -8,7 +8,7 @@
 #  sport_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  unit       :string
+#  unit       :jsonb
 #
 
 require 'test_helper'
@@ -18,7 +18,8 @@ class DisciplineTest < ActiveSupport::TestCase
   def setup
     @discipline = Discipline.new(
       name: {ru: 'Мужской', en: 'Man'},
-      sport: sports(:tennis)
+      sport: sports(:tennis),
+      unit: {ru: 'очки', en: 'score'}
     )
   end
 
@@ -106,5 +107,16 @@ class DisciplineTest < ActiveSupport::TestCase
       discipline.finished = false
       discipline.save
     end
+  end
+
+  test "unit should have right json content" do
+    @discipline.unit = {test: "123"}
+    assert_not @discipline.valid?
+
+    @discipline.unit = nil
+    assert @discipline.valid?
+
+    @discipline.unit = {ru: "тест", en: "test"}
+    assert @discipline.valid?
   end
 end

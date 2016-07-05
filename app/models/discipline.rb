@@ -8,7 +8,7 @@
 #  sport_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  unit       :string
+#  unit       :jsonb
 #
 
 class Discipline < ActiveRecord::Base
@@ -28,6 +28,9 @@ class Discipline < ActiveRecord::Base
   validates :finished, inclusion: { in: [true, false] }
   validates :name,
             presence: true,
+            json: JSON_VALIDATION
+  validates :unit,
+            allow_blank: true,
             json: JSON_VALIDATION
 
   scope :finished, -> { where(finished: true) }
