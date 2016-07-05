@@ -54,7 +54,8 @@ class Api::V1::CountriesController < ApplicationController
       params.require(:country).permit(
         {name: AVAILABLE_LOCALES},
         {info: AVAILABLE_LOCALES},
-        :flag
+        :flag,
+        :cover
       )
     end
 end
