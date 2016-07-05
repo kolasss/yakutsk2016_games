@@ -11,6 +11,7 @@
 #  bronze_count :integer          default(0), not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  cover        :string
 #
 
 require 'test_helper'
