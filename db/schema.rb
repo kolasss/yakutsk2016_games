@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705162352) do
+ActiveRecord::Schema.define(version: 20160708184013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20160705162352) do
 
   add_index "athletes", ["country_id"], name: "index_athletes_on_country_id", using: :btree
 
+  create_table "attachments", force: :cascade do |t|
+    t.jsonb    "title",      default: {}, null: false
+    t.string   "file"
+    t.jsonb    "meta",       default: {}, null: false
+    t.integer  "sport_id",                null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "attachments", ["sport_id"], name: "index_attachments_on_sport_id", using: :btree
+
   create_table "authentications", force: :cascade do |t|
     t.jsonb    "info"
     t.integer  "user_id",    null: false
@@ -35,6 +46,15 @@ ActiveRecord::Schema.define(version: 20160705162352) do
   end
 
   add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
+
+  create_table "bulletins", force: :cascade do |t|
+    t.jsonb    "title",      default: {}, null: false
+    t.string   "file"
+    t.date     "date",                    null: false
+    t.jsonb    "meta",       default: {}, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "contest_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id",   null: false
@@ -167,6 +187,7 @@ ActiveRecord::Schema.define(version: 20160705162352) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   add_foreign_key "athletes", "countries"
+  add_foreign_key "attachments", "sports"
   add_foreign_key "authentications", "users"
   add_foreign_key "contests", "contests", column: "parent_id"
   add_foreign_key "contests", "disciplines"

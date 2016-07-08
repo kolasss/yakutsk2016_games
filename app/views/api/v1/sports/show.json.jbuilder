@@ -22,3 +22,7 @@ json.disciplines @disciplines do |discipline|
               partial: 'api/v1/contests/contest',
               as: :contest
 end
+
+json.attachments @attachments do |attachment|
+  json.merge! attachment.as_json
+end

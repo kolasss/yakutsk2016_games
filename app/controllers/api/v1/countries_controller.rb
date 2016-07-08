@@ -27,8 +27,6 @@ class Api::V1::CountriesController < ApplicationController
   end
 
   def update
-    @country = Country.find(params[:id])
-
     if @country.update(country_params)
       render :show, status: :ok
     else

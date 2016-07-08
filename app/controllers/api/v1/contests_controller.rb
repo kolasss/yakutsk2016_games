@@ -22,8 +22,6 @@ class Api::V1::ContestsController < ApplicationController
   end
 
   def update
-    @contest = Contest.find(params[:id])
-
     if @contest.update(contest_params)
       render :show, status: :ok
     else

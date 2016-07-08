@@ -1,0 +1,1 @@
+json.merge! bulletin.as_json

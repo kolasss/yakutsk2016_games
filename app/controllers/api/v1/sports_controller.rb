@@ -9,6 +9,7 @@ class Api::V1::SportsController < ApplicationController
   def show
     @published_contests = @sport.contests.published.includes(:participations)
     @disciplines = @sport.disciplines.includes(contests: [:participations])
+    @attachments = @sport.attachments.by_created
     render
   end
 
@@ -23,8 +24,6 @@ class Api::V1::SportsController < ApplicationController
   end
 
   def update
-    @sport = Sport.find(params[:id])
-
     if @sport.update(sport_params)
       render :show, status: :ok
     else
@@ -54,7 +53,14 @@ class Api::V1::SportsController < ApplicationController
         :format,
         :icon,
         :photo,
-        :photo_small
+        :photo_small,
+        attachments_attributes: [
+          :id,
+          {title: AVAILABLE_LOCALES},
+          :file,
+          :file_cache,
+          :_destroy
+        ]
       )
     end
 end

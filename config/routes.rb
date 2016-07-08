@@ -37,6 +37,8 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :bulletins, except: [:new, :edit, :show]
+      resources :results, only: [:index]
     end
   end
 end

@@ -23,8 +23,6 @@ class Api::V1::AthletesController < ApplicationController
   end
 
   def update
-    @athlete = Athlete.find(params[:id])
-
     if @athlete.update(athlete_params)
       render :show, status: :ok
     else

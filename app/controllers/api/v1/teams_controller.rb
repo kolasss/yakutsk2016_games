@@ -25,8 +25,6 @@ class Api::V1::TeamsController < ApplicationController
   end
 
   def update
-    @team = Team.find(params[:id])
-
     if @team.update(team_params)
       data_for_show
       render :show, status: :ok

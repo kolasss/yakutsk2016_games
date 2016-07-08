@@ -22,8 +22,6 @@ class Api::V1::DisciplinesController < ApplicationController
   end
 
   def update
-    @discipline = Discipline.find(params[:id])
-
     if @discipline.update(discipline_params)
       render :show, status: :ok
     else

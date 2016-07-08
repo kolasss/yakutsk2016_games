@@ -22,8 +22,6 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def update
-    @location = Location.find(params[:id])
-
     if @location.update(location_params)
       render :show, status: :ok
     else

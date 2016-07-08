@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: bulletins
+#
+#  id         :integer          not null, primary key
+#  title      :jsonb            not null
+#  file       :string
+#  date       :date             not null
+#  meta       :jsonb            not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  file: MyString
+  date: 2016-07-09
+
+two:
+  title: MyString
+  file: MyString
+  date: 2016-07-10
