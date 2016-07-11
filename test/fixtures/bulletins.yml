@@ -14,11 +14,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
+  title:
+    ru: Ru test
+    en: En test
   file: MyString
   date: 2016-07-09
 
 two:
-  title: MyString
+  title:
+    ru: Ru test 2
+    en: En test 2
   file: MyString
   date: 2016-07-10

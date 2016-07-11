@@ -9,7 +9,7 @@ class Api::V1::SportsController < ApplicationController
   def show
     @published_contests = @sport.contests.published.includes(:participations)
     @disciplines = @sport.disciplines.includes(contests: [:participations])
-    @attachments = @sport.attachments.by_created
+    @attachments = @sport.attachments.by_date
     render
   end
 
@@ -59,6 +59,7 @@ class Api::V1::SportsController < ApplicationController
           {title: AVAILABLE_LOCALES},
           :file,
           :file_cache,
+          :date,
           :_destroy
         ]
       )

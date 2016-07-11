@@ -9,6 +9,7 @@
 #  sport_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  date       :date             not null
 #
 
 require 'test_helper'
