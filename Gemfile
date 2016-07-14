@@ -15,7 +15,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 # Pagination
-gem 'kaminari'
+# gem 'kaminari'
 
 gem 'closure_tree' # tree structure
 gem 'activerecord_json_validator'

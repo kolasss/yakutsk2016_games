@@ -3,7 +3,7 @@ class Api::V1::AthletesController < ApplicationController
   before_action :set_athlete, only: [:show, :update, :destroy]
 
   def index
-    @athletes = @country.athletes.page(params[:page])
+    @athletes = @country.athletes
     render
   end
 
