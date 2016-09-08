@@ -32,3 +32,36 @@ bundle exec cap staging deploy
 
 - bin/rake db:schema:load db:seed
 - passenger-config restart-app
+
+
+## nginx config 
+```
+server {
+    listen 80 default_server;
+    server_name backend.yakutsk2016.com;
+
+    # Tell Nginx and Passenger where your app's 'public' directory is
+    root /home/kolas/www/data_yakutsk2016/current/public;
+
+    # Turn on Passenger
+    passenger_enabled on;
+    passenger_ruby /home/kolas/.rbenv/versions/2.3.1/bin/ruby;
+
+    client_max_body_size 10M;
+}
+```
+
+## logrotate config
+```
+/home/kolas/www/data_yakutsk2016/shared/log/production.log
+{
+    daily
+    missingok
+    rotate 14
+    compress
+    delaycompress
+    notifempty
+    copytruncate
+    su kolas kolas
+}
+```
