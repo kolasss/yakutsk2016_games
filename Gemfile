@@ -24,6 +24,8 @@ gem "sorcery"
 # gem "pundit" #authorization
 gem 'jwt'
 
+gem 'yaml_db'
+
 group :development, :test do
   gem 'byebug'
   gem 'spring'
