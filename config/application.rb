@@ -31,3 +31,11 @@ module Yakutsk2016Games
     config.autoload_paths += Dir[Rails.root.join('lib')]
   end
 end
+
+module SerializationHelper
+  class Load
+    def self.truncate_table(table)
+     true
+    end
+  end
+end
